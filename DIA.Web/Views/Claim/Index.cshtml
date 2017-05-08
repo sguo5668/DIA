@@ -1,0 +1,49 @@
+@model IEnumerable<DIA.Web.ClaimHistory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Step1">Create DI Claim</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimIDNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimantID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EffectiveDate)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimIDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimantID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EffectiveDate)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>

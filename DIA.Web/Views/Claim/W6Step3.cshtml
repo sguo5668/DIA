@@ -1,0 +1,71 @@
+@model DIA.Web.DI2501AForm
+
+@{
+    ViewData["Title"] = "W6Step2";
+}
+
+<h2>Initial Question</h2>
+
+<form asp-action="w6step4">
+    <div class="form-horizontal">
+        <h4>DI2501AForm</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="IsSelffEmployed" />
+                    <label asp-for="IsSelffEmployed"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="IsStateEmloyee" />
+                    <label asp-for="IsStateEmloyee"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="UnderLawEnforcement" />
+                    <label asp-for="UnderLawEnforcement"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastDayWorked" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LastDayWorked" class="form-control" />
+                <span asp-validation-for="LastDayWorked" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DisabilityBeginDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DisabilityBeginDate" class="form-control" />
+                <span asp-validation-for="DisabilityBeginDate" class="text-danger"></span>
+            </div>
+        </div>
+      
+        <div class="form-group">
+
+            <div class="col-md-offset-2 col-md-10">
+
+                <input type="submit" name="BtnPrevious" value="Previous" class="btn btn-default" />
+
+                <input type="submit" name="BtnNext" value="Finish" class="btn btn-default" />
+
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

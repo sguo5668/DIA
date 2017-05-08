@@ -1,0 +1,9 @@
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\bin\Debug\netcoreapp1.1\DIA.Web.deps.json
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\bin\Debug\netcoreapp1.1\DIA.Web.runtimeconfig.json
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\bin\Debug\netcoreapp1.1\DIA.Web.runtimeconfig.dev.json
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\bin\Debug\netcoreapp1.1\DIA.Web.dll
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\bin\Debug\netcoreapp1.1\DIA.Web.pdb
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.AssemblyInfo.cs
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.dll
+c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.pdb
+C:\Users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.csprojResolveAssemblyReference.cache

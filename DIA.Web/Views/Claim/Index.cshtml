@@ -1,5 +1,4 @@
 @model IEnumerable<DIA.Web.ClaimHistory>
-
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,38 +11,45 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClaimIDNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClaimType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClaimantID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EffectiveDate)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClaimIDNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClaimType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClaimantID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EffectiveDate)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClaimIDNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClaimType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClaimantID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EffectiveDate)
-            </td>
-           
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimIDNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimantID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EffectiveDate)
+                </td>
+
+            </tr>
+        }
     </tbody>
 </table>

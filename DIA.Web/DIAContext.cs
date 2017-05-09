@@ -11,7 +11,7 @@ namespace DIA.Web
     {
 
         public DIAContext(DbContextOptions<DIAContext> options)
-            : base(options)
+              : base(options)
         {
         }
 
@@ -20,7 +20,9 @@ namespace DIA.Web
         public DbSet<Form> Forms { get; set; }
         public DbSet<FormOtherName> FormOtherNames { get; set; }
         public DbSet<DI2501AForm> DI2501AForms { get; set; }
+        //public DbSet<ReferenceTable> ReferenceTable { get; set; }
+        //public DbSet<ReferenceTableValue> ReferenceTableValue { get; set; }
         public DbSet<DIA.Web.ViewModels.DI2501AClaimantFormW6b> DI2501AClaimantFormW6b { get; set; }
-        
+
     }
 }

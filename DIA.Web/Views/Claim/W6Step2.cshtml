@@ -1,4 +1,4 @@
-@model DIA.Web.FormOtherName
+@model DIA.Web.ViewModels.DI2501AClaimantForm
 
 @{
     ViewData["Title"] = "Create";
@@ -6,37 +6,42 @@
 
 <h2>Personal Information</h2>
 
-<form asp-action="Step3">
+
+
+<form asp-action="Step2">
+
+
+
     <div class="form-horizontal">
         <h4>FormOtherName</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="FirstName" class="col-md-2 control-label"></label>
+            <label asp-for=@Model.FormOtherName.FirstName class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <input asp-for=@Model.FormOtherName.FirstName class="form-control" />
+
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="LastName" class="col-md-2 control-label"></label>
+            <label asp-for=@Model.FormOtherName.LastName class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
+                <input asp-for=@Model.FormOtherName.LastName class="form-control" />
+
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="SSN" class="col-md-2 control-label"></label>
+            <label asp-for=@Model.FormOtherName.SSN class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="SSN" class="form-control" />
-                <span asp-validation-for="SSN" class="text-danger"></span>
+                <input asp-for=@Model.FormOtherName.SSN class="form-control" />
+
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Phone" class="col-md-2 control-label"></label>
+            <label asp-for=@Model.FormOtherName.Phone class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
+                <input asp-for=@Model.FormOtherName.Phone class="form-control" />
+
             </div>
         </div>
         <div class="form-group">
@@ -57,4 +62,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-

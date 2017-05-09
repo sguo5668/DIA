@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using DIA.Web.ViewModels;
 using Microsoft.AspNetCore.Http;
- 
+using Microsoft.AspNetCore.Routing;
 
 namespace DIA.Web.Controllers
 {
@@ -17,7 +17,10 @@ namespace DIA.Web.Controllers
         // Create a field to store the mapper object
         private readonly IMapper _mapper;
 
-        public ClaimController( IClaimRepository claimRepository, IMapper mapper)
+        private static DI2501AClaimantForm x = new DI2501AClaimantForm();
+
+
+        public ClaimController(IClaimRepository claimRepository, IMapper mapper)
         {
             repo = claimRepository;
             _mapper = mapper;
@@ -30,13 +33,9 @@ namespace DIA.Web.Controllers
         {
 
             //   var claim = repo.GetHistoryClaim(id);
-             var claim = repo.GetAll();
-
+            var claim = repo.GetAll();
             var claimHistory = _mapper.Map<IEnumerable<ClaimHistory>>(claim);
-
             return View(claimHistory);
-
- 
         }
 
         public IActionResult Create(int id)
@@ -52,54 +51,62 @@ namespace DIA.Web.Controllers
             return View("index");
         }
 
-        private DI2501AClaimantForm GetDI2501AClaimantForm()
-        {
-            var formsession = HttpContext.Session.GetObject<DI2501AClaimantForm>("DI2501AClaimantForm");
+        //private DI2501AClaimantForm GetDI2501AClaimantForm()
+        //{
+        //    var formsession = HttpContext.Session.GetObject<DI2501AClaimantForm>("DI2501AClaimantForm");
 
-            if (formsession == null)
-            {
+        //    if (formsession == null)
+        //    {
 
-                var x = new DI2501AClaimantForm();
-                HttpContext.Session.SetObject("DI2501AClaimantForm", x);
+        //        var x = new DI2501AClaimantForm();
+        //        HttpContext.Session.SetObject("DI2501AClaimantForm", x);
 
-                //HttpContext.Session.SetObjectAsJson("DI2501AClaimantForm", new DI2501AClaimantForm());
-            }
-            return HttpContext.Session.GetObject<DI2501AClaimantForm>("DI2501AClaimantForm");
-        }
+        //        //HttpContext.Session.SetObjectAsJson("DI2501AClaimantForm", new DI2501AClaimantForm());
+        //    }
+        //    return HttpContext.Session.GetObject<DI2501AClaimantForm>("DI2501AClaimantForm");
+        //}
 
         [Route("[controller]/Create/[action]")]
         [HttpGet]
         [ActionName("Step1")]
-        public ActionResult Create( string BtnCancel, string BtnNext)
+        public ActionResult Create()
         {
-       
-                return View("W6Step1");
-
-       
+            return View("W6Step1");
         }
-
 
 
         [Route("[controller]/Create/[action]")]
         [HttpPost]
-        [ActionName ("Step2")]
- 
- 
-        public IActionResult create(FormOtherName FormOtherName, string BtnPrevious, string BtnSaveDraft, string BtnNext)
+        [ActionName("Step1")]
+        public ActionResult Step1(string BtnNext, string BtnCancel)
         {
 
-
             if (BtnNext != null)
-
             {
+                x.ClaimType = 1;
+                return View("W6Step2", x);
+
+                //return RedirectToAction("Step2", "Claim");
+                //return RedirectToAction("Action", new Microsoft.AspNetCore.Routing.RouteValueDictionary(x));
+                //     return View("W6Step2", x);
+
+                //     return RedirectToAction("Step2", "Claim", new RouteValueDictionary(x));
+
+            }
+
+            return View("index");
+        }
 
 
-                ////      DI2501AClaimantForm x = (DI2501AClaimantForm)GetDI2501AClaimantForm();
-                //var x = (DI2501AClaimantForm)GetDI2501AClaimantForm();
-                //x.FormOtherName = FormOtherName;
-                //TempData["step1"] = FormOtherName;
-                return View("W6Step2");
-
+        [Route("[controller]/Create/[action]")]
+        [HttpPost]
+        [ActionName("Step2")]
+        public IActionResult Step2(DI2501AClaimantForm DI2501AClaimantForm, string BtnPrevious, string BtnNext)
+        {
+            if (BtnNext != null)
+            {
+                x.FormOtherName = DI2501AClaimantForm.FormOtherName;
+                return View("W6Step3", x);
             }
             return View();
 
@@ -108,32 +115,16 @@ namespace DIA.Web.Controllers
         [Route("[controller]/Create/[action]")]
         [HttpPost]
         [ActionName("Step3")]
-        public IActionResult create(DI2501AForm DI2501AForm, string BtnPrevious, string BtnNext)
-
+        public IActionResult Step3(DI2501AClaimantForm DI2501AClaimantForm, string BtnPrevious, string BtnNext)
         {
-            //DI2501AClaimantForm x = (DI2501AClaimantForm)GetDI2501AClaimantForm();
-
             if (BtnPrevious != null)
-
             {
-
-                //FormOtherName DetailsObj = new FormOtherName();
-
-                //DetailsObj = x.FormOtherName;
-
-
-                //return View("create", DetailsObj);
-
-                //return View("create", TempData["step1"]);
-                return View("W6Step2");
+                return View("W6Step2", x);
             }
 
             if (BtnNext != null)
-
             {
-                //x.DI2501AForm = DI2501AForm;
-
-                //TempData["step2"] = DI2501AForm;
+                x.DI2501AForm = DI2501AClaimantForm.DI2501AForm;
                 return View("W6Step3");
             }
 

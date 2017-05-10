@@ -7,6 +7,8 @@ using AutoMapper;
 using DIA.Web.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Localization;
 
 namespace DIA.Web.Controllers
 {
@@ -16,15 +18,16 @@ namespace DIA.Web.Controllers
         IClaimRepository repo;
         // Create a field to store the mapper object
         private readonly IMapper _mapper;
+		private readonly IStringLocalizer<ClaimController> _localizer;
+		private static DI2501AClaimantForm x = new DI2501AClaimantForm();
+		
 
-        private static DI2501AClaimantForm x = new DI2501AClaimantForm();
-
-
-        public ClaimController(IClaimRepository claimRepository, IMapper mapper)
+		public ClaimController( IClaimRepository claimRepository, IMapper mapper, IStringLocalizer<ClaimController> localizer)
         {
             repo = claimRepository;
             _mapper = mapper;
-        }
+			_localizer = localizer;
+		}
 
         [Route("[controller]")]
         [Route("[controller]/[action]/{id?}")]
@@ -32,10 +35,13 @@ namespace DIA.Web.Controllers
         public IActionResult Index(int id)
         {
 
+			//ViewBag.cachedmessage = _message;
+
+
             //   var claim = repo.GetHistoryClaim(id);
             var claim = repo.GetAll();
-            var claimHistory = _mapper.Map<IEnumerable<ClaimHistory>>(claim);
-            return View(claimHistory);
+			var claimHistory = _mapper.Map<IEnumerable<ClaimHistory>>(claim);
+			return View(claimHistory);
         }
 
         public IActionResult Create(int id)
@@ -71,42 +77,42 @@ namespace DIA.Web.Controllers
         [ActionName("Step1")]
         public ActionResult Create()
         {
-            return View("W6Step1");
-        }
+                 return View("W6Step1");
+	    }
 
 
-        [Route("[controller]/Create/[action]")]
+		[Route("[controller]/Create/[action]")]
+		[HttpPost]
+		[ActionName("Step1")]
+		public ActionResult Step1(string BtnNext, string BtnCancel)
+		{
+
+			if (BtnNext != null)
+			{
+				x.ClaimType = 1;
+				 return View("W6Step2",x);
+
+				//return RedirectToAction("Step2", "Claim");
+				//return RedirectToAction("Action", new Microsoft.AspNetCore.Routing.RouteValueDictionary(x));
+				//	return View("W6Step2", x);
+
+			//	return RedirectToAction("Step2", "Claim", new RouteValueDictionary(x));
+
+			}
+		 			 
+				return View("index");
+		 }
+
+
+		[Route("[controller]/Create/[action]")]
         [HttpPost]
-        [ActionName("Step1")]
-        public ActionResult Step1(string BtnNext, string BtnCancel)
+        [ActionName ("Step2")]
+          public IActionResult Step2(DI2501AClaimantForm DI2501AClaimantForm, string BtnPrevious, string BtnNext )
         {
-
             if (BtnNext != null)
             {
-                x.ClaimType = 1;
-                return View("W6Step2", x);
-
-                //return RedirectToAction("Step2", "Claim");
-                //return RedirectToAction("Action", new Microsoft.AspNetCore.Routing.RouteValueDictionary(x));
-                //     return View("W6Step2", x);
-
-                //     return RedirectToAction("Step2", "Claim", new RouteValueDictionary(x));
-
-            }
-
-            return View("index");
-        }
-
-
-        [Route("[controller]/Create/[action]")]
-        [HttpPost]
-        [ActionName("Step2")]
-        public IActionResult Step2(DI2501AClaimantForm DI2501AClaimantForm, string BtnPrevious, string BtnNext)
-        {
-            if (BtnNext != null)
-            {
-                x.FormOtherName = DI2501AClaimantForm.FormOtherName;
-                return View("W6Step3", x);
+				x.FormOtherName = DI2501AClaimantForm.FormOtherName;
+				return View("W6Step3",x);
             }
             return View();
 
@@ -119,17 +125,30 @@ namespace DIA.Web.Controllers
         {
             if (BtnPrevious != null)
             {
-                return View("W6Step2", x);
+                return View("W6Step2",x);
             }
 
             if (BtnNext != null)
             {
-                x.DI2501AForm = DI2501AClaimantForm.DI2501AForm;
-                return View("W6Step3");
+				x.DI2501AForm = DI2501AClaimantForm.DI2501AForm;
+				return View("W6Step3");
             }
 
             return View();
         }
 
-    }
+		[HttpPost]
+		[Route("[controller]")]
+		public IActionResult SetLanguage(string culture, string returnUrl)
+		{
+			Response.Cookies.Append(
+				CookieRequestCultureProvider.DefaultCookieName,
+				CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+				new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+			);
+
+			return LocalRedirect(returnUrl);
+		}
+
+	}
 }

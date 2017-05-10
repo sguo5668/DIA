@@ -1,9 +1,13 @@
+@using Microsoft.AspNetCore.Mvc.Localization
 @model IEnumerable<DIA.Web.ClaimHistory>
+@inject IViewLocalizer Localizer
+
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = Localizer[ResourceKeys.ClaimHome];
 }
 
-<h2>Index</h2>
+<h2>@ViewData["Title"]</h2>
 
 <p>
     <a asp-action="Step1">Create DI Claim</a>
@@ -11,45 +15,47 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ClaimIDNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClaimType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClaimantID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EffectiveDate)
-            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimIDNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimantID)
+                </th>
+			<th>
+				@Html.DisplayNameFor(model => model.Id)
+			</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EffectiveDate)
+                </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClaimIDNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClaimType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClaimantID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EffectiveDate)
-                </td>
-
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimIDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimantID)
+            </td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id)
+			</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EffectiveDate)
+            </td>
+           
+        </tr>
+}
     </tbody>
 </table>
+<div class="<col-sm></col-sm>-6 text-right">
+	@await Html.PartialAsync("_SelectLanguagePartial")
+</div>

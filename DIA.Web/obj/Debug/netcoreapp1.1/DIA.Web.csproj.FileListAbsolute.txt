@@ -6,3 +6,8 @@ c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\bin\Debug\netco
 c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.AssemblyInfo.cs
 c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.dll
 c:\users\jimmy\documents\visual studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.pdb
+C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.Resources.Resources.resources
+C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.Resources.Resources.es-MX.resources
+C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.csproj.GenerateResource.Cache
+C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\bin\Debug\netcoreapp1.1\es-MX\DIA.Web.resources.dll
+C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\es-MX\DIA.Web.resources.dll

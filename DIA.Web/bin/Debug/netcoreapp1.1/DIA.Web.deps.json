@@ -45,6 +45,11 @@
         "runtime": {
           "DIA.Web.dll": {}
         },
+        "resources": {
+          "es-MX/DIA.Web.resources.dll": {
+            "locale": "es-MX"
+          }
+        },
         "compile": {
           "DIA.Web.dll": {}
         }

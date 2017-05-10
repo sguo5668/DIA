@@ -10,14 +10,24 @@ namespace DIA.Web
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public string FirstName { get; set; }
-        [Required]
-        public string LastName { get; set; }
-        [Required]
-        public string SSN { get; set; }
-        public string Phone { get; set; }
-        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+     
+		[Required(ErrorMessage = ResourceKeys.Required)]
+		[Display(Name = ResourceKeys.FirstName)]
+		public string FirstName { get; set; }
+
+		[Required(ErrorMessage = ResourceKeys.Required)]
+		[Display(Name = ResourceKeys.LastName)]
+		public string LastName { get; set; }
+		[Display(Name = ResourceKeys.SSN)]
+		public string SSN { get; set; }
+
+		[Display(Name = ResourceKeys.MiddleName)]
+		public string MiddleName { get; set; }
+
+		[Display(Name = ResourceKeys.Suffix)]
+		public string Suffix { get; set; }
+
+		public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
 
         [Required]
         public Form Form { get; set; }

@@ -1,7 +1,9 @@
+@using Microsoft.AspNetCore.Mvc.Localization
 @model DIA.Web.ViewModels.DI2501AClaimantForm
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = Localizer[ResourceKeys.CreateClaimStep2];
 }
 
 <h2>Personal Information</h2>
@@ -10,40 +12,48 @@
 
 <form asp-action="Step2">
 
-
+	
 
     <div class="form-horizontal">
         <h4>FormOtherName</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for=@Model.FormOtherName.FirstName class="col-md-2 control-label"></label>
+            <label asp-for=@Model.FormOtherName.FirstName  class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for=@Model.FormOtherName.FirstName class="form-control" />
-
+              
             </div>
         </div>
         <div class="form-group">
             <label asp-for=@Model.FormOtherName.LastName class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for=@Model.FormOtherName.LastName class="form-control" />
-
+               
             </div>
         </div>
         <div class="form-group">
             <label asp-for=@Model.FormOtherName.SSN class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for=@Model.FormOtherName.SSN class="form-control" />
-
+               
             </div>
         </div>
         <div class="form-group">
-            <label asp-for=@Model.FormOtherName.Phone class="col-md-2 control-label"></label>
+            <label asp-for=@Model.FormOtherName.MiddleName class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for=@Model.FormOtherName.Phone class="form-control" />
-
+                <input asp-for=@Model.FormOtherName.MiddleName class="form-control" />
+                 
             </div>
         </div>
+
+		<div class="form-group">
+			<label asp-for=@Model.FormOtherName.Suffix class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for=@Model.FormOtherName.Suffix class="form-control" />
+
+			</div>
+		</div>
         <div class="form-group">
 
             <div class="col-md-offset-2 col-md-10">
@@ -62,3 +72,4 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+

@@ -1,49 +1,39 @@
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = Localizer[ResourceKeys.CreateClaimStep1];
 }
 
+ 
+ 
 
 
+    <form asp-action="Step1">
+        <div class="form-horizontal">
+            <h4>Disability Information</h4>
+            <hr />
+          
+            <div class="form-group">
+                <span title="">
 
+					@Localizer[ResourceKeys.DICreateClaimSoftText]
 
-<form asp-action="Step1">
-    <div class="form-horizontal">
-        <h4>Disability Information</h4>
-        <hr />
+                     
+                </span>
+            </div>
+       
 
-        <div class="form-group">
-            <span title="">
-                Please have the following information available while completing this form: <ul>
-                    <li>Most current employer(s) business name, telephone number, and mailing address as stated on your W2 form and/or paycheck stub.</li>
-                    <br />
-                    <li>Last date you worked your regular or customary duties and hours.</li>
-                    <br />
-                    <li>Date you began working at less than full duty or modified duty.</li>
-                    <br />
-                    <li>Wages you received or expect to receive from your employer: sick leave, paid time off (PTO), vacation pay, annual leave, and wages earned after you stopped working.</li>
-                    <br />
-                    <li>Workers’ Compensation claim information, if applicable.</li>
-                    <br />
-                    <li>The name, address, and telephone number, if any, of the Alcoholic Recovery Home or Drug-Free Facility where you are currently receiving in-patient treatment.</li>
-                    <br />
-                    <li>You are responsible for obtaining a Physician/Practitioner Certification for your disability.  Your claim will be returned if the Physician/Practitioner Certification is not received within 30 days.  Please note that your employer will be notified that you have submitted a DI claim. However, your detailed claim information is confidential and will not be shared with your employer.</li>
-                </ul>
-            </span>
-        </div>
+            <div class="form-group">
 
+                <div class="col-md-offset-2 col-md-10">
 
-        <div class="form-group">
+                    <input type="submit" name="BtnCancel" value="Cancel" class="btn btn-default" />
 
-            <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" name="BtnNext" value="Next" class="btn btn-default" />
 
-                <input type="submit" name="BtnCancel" value="Cancel" class="btn btn-default" />
-
-                <input type="submit" name="BtnNext" value="Next" class="btn btn-default" />
+                </div>
 
             </div>
 
         </div>
-
-    </div>
-</form>
+    </form>

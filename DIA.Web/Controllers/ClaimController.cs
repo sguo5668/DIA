@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
+using PagedList.Core.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DIA.Web.Controllers
 {
@@ -32,16 +34,36 @@ namespace DIA.Web.Controllers
         [Route("[controller]")]
         [Route("[controller]/[action]/{id?}")]
         [Route("[controller]/{id?}")]
-        public IActionResult Index(int id)
+        public async Task<IActionResult> Index(string currentFilter,     string searchString,     int? page)
         {
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
-			//ViewBag.cachedmessage = _message;
-
+            ViewData["CurrentFilter"] = searchString;
 
             //   var claim = repo.GetHistoryClaim(id);
             var claim = repo.GetAll();
 			var claimHistory = _mapper.Map<IEnumerable<ClaimHistory>>(claim);
-			return View(claimHistory);
+ 
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                claimHistory = claimHistory.Where(c => c.ClaimIDNumber.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            int pageSize = 1;
+            return View(await PaginatedList<ClaimHistory>.CreateAsync(<IEnumerable<ClaimHistory>> (claimHistory), page ?? 1, pageSize));
+
+          
+
+
+            //return View(claimHistory);
         }
 
         public IActionResult Create(int id)

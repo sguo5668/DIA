@@ -86,14 +86,14 @@ namespace DIA.Web
             var mapper = config.CreateMapper();
             services.AddSingleton(mapper);
 
-			//services.AddSingleton<ICachingService>(new CachingService());
+			services.AddSingleton<ICachingService>(new CachingService());
 
 			services.AddScoped<IClaimRepository, ClaimRepository>();
 
 
-			 
-
-
+			services.AddScoped<IPersonRepository,PersonRepository>();
+			services.AddScoped<IPersonPhoneRepository, PersonPhoneRepository>();
+			services.AddScoped<IPersonAddressRepository, PersonAddressRepository>();
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -141,8 +141,8 @@ namespace DIA.Web
 			var context = app.ApplicationServices.GetService<DIAContext>();
             AddTestData(context);
 
-			//_message = context.ReferenceTableValue.ToList();
-			//cache.Set(_datekey, _message);
+			_message = context.ReferenceTableValue.ToList();
+			cache.Set(_datekey, _message);
 
 			app.UseMvc(
 
@@ -188,54 +188,132 @@ namespace DIA.Web
             };
             context.Claims.Add(testUser3);
 
-            var testUser4 = new Claimant
+            var testUser4 = new Person
             {
        
-                Id = 1,
+               Id=1,
                 DOB = Convert.ToDateTime("3/25/1997"),
                 FirstName = "John",
                 LastName ="Doe",
-                SSN ="111-22-3333"
+                ECN ="00023333",
+				Email="a@abc.com"
             };
 
-            context.Claimants.Add(testUser4);
+            context.Persons.Add(testUser4);
 			context.SaveChanges();
 
-			//var reftable = new ReferenceTable
-			//{
 
-			//TableName="Claim_Type"
-			//};
+			var testUser5 = new PersonPhoneNumber
+			{
 
-			//context.ReferenceTable.Add(reftable);
-
-			//context.SaveChanges();
-
-			//int refid = reftable.Id;
+				PersonID = 1,
+				PhoneNumber = "111-222-3333",
+				PhoneNumberTypeCode = 123,
+				IsPrimary = true,
+							};
 
 
-			//var reftablevalue = new ReferenceTableValue
-			//{
-
-			//	TableName = "Claim_Type",
-			//	SystemValue ="Disability Claim" 
-
-			//};
-
-			//context.ReferenceTableValue.Add(reftablevalue);
-
-			//var reftablevalue2 = new ReferenceTableValue
-			//{
-
-			//	TableName = "Claim_Type",
-			//	SystemValue = "PFL Claim"
-
-			//};
-
-			//context.ReferenceTableValue.Add(reftablevalue2);
+			
+			context.PersonPhoneNumbers.Add(testUser5);
+			context.SaveChanges();
 
 
-			//context.SaveChanges();
+
+			var testUser5a = new PersonPhoneNumber
+			{
+
+				PersonID = 1,
+				PhoneNumber = "124-222-3333",
+				PhoneNumberTypeCode = 124,
+				IsPrimary = false,
+			};
+
+
+
+			context.PersonPhoneNumbers.Add(testUser5a);
+			context.SaveChanges();
+
+
+
+			var testUser6 = new PersonAddress
+			{
+
+				PersonID = 1,
+				AddressLine1 = "123 main st",
+				City="fremont",
+				StateCode=12,
+				ZipCode="94539",
+				AddressTypeCode=234
+		 
+			};
+
+
+
+			context.PersonAddresses.Add(testUser6);
+			context.SaveChanges();
+
+
+
+			var testUser7 = new PersonAddress
+			{
+
+				PersonID = 1,
+				AddressLine1 = "456 main st",
+				City = "sacramento",
+				StateCode = 12,
+				ZipCode = "93539",
+				AddressTypeCode = 235
+			};
+
+
+
+			context.PersonAddresses.Add(testUser7);
+			context.SaveChanges();
+
+
+
+
+
+
+
+
+
+
+			var reftable = new ReferenceTable
+			{
+
+			TableName="Claim_Type"
+			};
+
+			context.ReferenceTable.Add(reftable);
+
+			context.SaveChanges();
+
+			int refid = reftable.Id;
+
+
+			var reftablevalue = new ReferenceTableValue
+			{
+
+				TableName = "Claim_Type",
+				SystemValue ="Disability Claim" 
+
+			};
+
+			context.ReferenceTableValue.Add(reftablevalue);
+
+			var reftablevalue2 = new ReferenceTableValue
+			{
+
+				TableName = "Claim_Type",
+				SystemValue = "PFL Claim"
+
+			};
+
+			context.ReferenceTableValue.Add(reftablevalue2);
+
+
+			context.SaveChanges();
 
 		
 

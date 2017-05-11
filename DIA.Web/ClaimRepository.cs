@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
- 
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace DIA.Web
 {
     public class ClaimRepository :  Repository<Claim> , IClaimRepository
-    {
+	{
         public ClaimRepository(DIAContext context) 
             : base(context)
         {
@@ -17,7 +16,7 @@ namespace DIA.Web
         public IEnumerable<Claim> GetHistoryClaim(int id)
         {
             return DIAContext.Claims.Where(c => c.Id == id).ToList();
-
+	 
         }
 
  

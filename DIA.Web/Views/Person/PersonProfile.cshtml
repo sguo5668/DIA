@@ -1,0 +1,25 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@using DIA.Web.ViewModels
+@model DIA.Web.ViewModels.VMPersonProfile
+@inject IViewLocalizer Localizer
+
+	@{
+    ViewData["Title"] = "Person Profile";
+	}
+
+ 
+
+
+	<div class="<col-sm></col-sm>-6 text-right">
+		 @await Html.PartialAsync("_PersonalInfoPartial")
+		</div>
+
+	<div class="<col-sm></col-sm>-6 text-right">
+		 @await Html.PartialAsync("_PersonPhonePartial")
+		</div>
+
+
+		<div class="<col-sm></col-sm>-6 text-right">
+		 @await Html.PartialAsync("_PersonAddressPartial")
+		</div>
+ 

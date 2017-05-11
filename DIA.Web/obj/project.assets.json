@@ -1951,6 +1951,30 @@
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
         }
       },
+      "PagedList.Core/1.17.4": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        }
+      },
+      "PagedList.Core.Mvc/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.0",
+          "Microsoft.AspNetCore.Razor.Runtime": "1.0.0",
+          "NETStandard.Library": "1.6.0",
+          "PagedList.Core": "1.17.4"
+        },
+        "compile": {
+          "lib/netstandard1.6/PagedList.Core.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/PagedList.Core.Mvc.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -5989,6 +6013,49 @@
         "lib/netstandard1.3/NuGet.Frameworks.xml",
         "nuget.frameworks.3.5.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
+      ]
+    },
+    "PagedList.Core/1.17.4": {
+      "sha512": "q1HEnC+v01NY87+mF6YtNFMuZG15YCYcAUqR6jiKzSYJye+28TP6GTbRkrbN4ZgfnvBqeH8NtlPJQ1ayeA2UnA==",
+      "type": "package",
+      "path": "pagedlist.core/1.17.4",
+      "files": [
+        "lib/net45/PagedList.Core.dll",
+        "lib/net45/PagedList.Core.pdb",
+        "lib/net451/PagedList.Core.dll",
+        "lib/net451/PagedList.Core.pdb",
+        "lib/net461/PagedList.Core.dll",
+        "lib/net461/PagedList.Core.pdb",
+        "lib/net462/PagedList.Core.dll",
+        "lib/net462/PagedList.Core.pdb",
+        "lib/netcoreapp1.0/PagedList.Core.dll",
+        "lib/netcoreapp1.0/PagedList.Core.pdb",
+        "lib/netstandard1.0/PagedList.Core.dll",
+        "lib/netstandard1.0/PagedList.Core.pdb",
+        "lib/netstandard1.1/PagedList.Core.dll",
+        "lib/netstandard1.1/PagedList.Core.pdb",
+        "lib/netstandard1.2/PagedList.Core.dll",
+        "lib/netstandard1.2/PagedList.Core.pdb",
+        "lib/netstandard1.3/PagedList.Core.dll",
+        "lib/netstandard1.3/PagedList.Core.pdb",
+        "lib/netstandard1.4/PagedList.Core.dll",
+        "lib/netstandard1.4/PagedList.Core.pdb",
+        "lib/netstandard1.5/PagedList.Core.dll",
+        "lib/netstandard1.5/PagedList.Core.pdb",
+        "lib/netstandard1.6/PagedList.Core.dll",
+        "lib/netstandard1.6/PagedList.Core.pdb",
+        "pagedlist.core.1.17.4.nupkg.sha512",
+        "pagedlist.core.nuspec"
+      ]
+    },
+    "PagedList.Core.Mvc/1.0.1": {
+      "sha512": "F7xn2CHosXZB5f+TN60gybuR2s//aJEWfGmn0aZdiYLEs2tTHxbUDKzmJshSALtiJz1fCy4DjPtFdwu6j1kCvg==",
+      "type": "package",
+      "path": "pagedlist.core.mvc/1.0.1",
+      "files": [
+        "lib/netstandard1.6/PagedList.Core.Mvc.dll",
+        "pagedlist.core.mvc.1.0.1.nupkg.sha512",
+        "pagedlist.core.mvc.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -11072,6 +11139,7 @@
       "Microsoft.NETCore.App >= 1.1.1",
       "Microsoft.VisualStudio.Web.BrowserLink >= 1.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 1.1.0",
+      "PagedList.Core.Mvc >= 1.0.1",
       "Serilog.Extensions.Logging >= 1.4.0",
       "Serilog.Extensions.Logging.File >= 1.0.1"
     ]
@@ -11114,6 +11182,10 @@
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "1.1.1"
+          },
+          "PagedList.Core.Mvc": {
+            "target": "Package",
+            "version": "1.0.1"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",

@@ -60,7 +60,17 @@ namespace DIA.Web
             Context.Set<TEntity>().AddRange(entities);
         }
 
-        public void Remove(TEntity entity)
+		public void Update(TEntity entity)
+		{
+			//Context.Set<TEntity>().Attach(entity);
+
+			Context.Entry(entity).State = EntityState.Added;
+			Context.SaveChanges();
+		}
+
+
+
+		public void Remove(TEntity entity)
         {
             Context.Set<TEntity>().Remove(entity);
         }

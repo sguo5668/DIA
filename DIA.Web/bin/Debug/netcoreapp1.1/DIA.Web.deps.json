@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "07f2b0aa5075590bb8a635ff6809ec72d6a46753"
+    "signature": "8c64d37ad59c7ae077b77e68fddf9d844d60bbac"
   },
   "compilationOptions": {
     "defines": [
@@ -39,6 +39,7 @@
           "Microsoft.NETCore.App": "1.1.1",
           "Microsoft.VisualStudio.Web.BrowserLink": "1.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "1.1.0",
+          "PagedList.Core.Mvc": "1.0.1",
           "Serilog.Extensions.Logging": "1.4.0",
           "Serilog.Extensions.Logging.File": "1.0.1"
         },
@@ -1516,6 +1517,28 @@
         },
         "compile": {
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
+        }
+      },
+      "pagedlist.core/1.17.4": {
+        "runtime": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        },
+        "compile": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        }
+      },
+      "pagedlist.core.mvc/1.0.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.1.2",
+          "Microsoft.AspNetCore.Razor.Runtime": "1.1.1",
+          "NETStandard.Library": "1.6.1",
+          "PagedList.Core": "1.17.4"
+        },
+        "runtime": {
+          "lib/netstandard1.6/PagedList.Core.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.6/PagedList.Core.Mvc.dll": {}
         }
       },
       "remotion.linq/2.1.1": {
@@ -4307,6 +4330,20 @@
       "sha512": "sha512-mj7pCguESABXPe27wleBICqbo1h0nm1bdfQN9GSUnKOdWI2QNhE3AB0SvAWrD0PYanzG65thsbCeB/uLj+XSwg==",
       "path": "nuget.frameworks/3.5.0",
       "hashPath": "nuget.frameworks.3.5.0.nupkg.sha512"
+    },
+    "pagedlist.core/1.17.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q1HEnC+v01NY87+mF6YtNFMuZG15YCYcAUqR6jiKzSYJye+28TP6GTbRkrbN4ZgfnvBqeH8NtlPJQ1ayeA2UnA==",
+      "path": "pagedlist.core/1.17.4",
+      "hashPath": "pagedlist.core.1.17.4.nupkg.sha512"
+    },
+    "pagedlist.core.mvc/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F7xn2CHosXZB5f+TN60gybuR2s//aJEWfGmn0aZdiYLEs2tTHxbUDKzmJshSALtiJz1fCy4DjPtFdwu6j1kCvg==",
+      "path": "pagedlist.core.mvc/1.0.1",
+      "hashPath": "pagedlist.core.mvc.1.0.1.nupkg.sha512"
     },
     "remotion.linq/2.1.1": {
       "type": "package",

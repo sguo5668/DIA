@@ -11,3 +11,4 @@ C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netco
 C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.csproj.GenerateResource.Cache
 C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\bin\Debug\netcoreapp1.1\es-MX\DIA.Web.resources.dll
 C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\es-MX\DIA.Web.resources.dll
+C:\Users\jimmy\Documents\Visual Studio 2017\Projects\DIA\DIA.Web\obj\Debug\netcoreapp1.1\DIA.Web.csprojResolveAssemblyReference.cache

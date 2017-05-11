@@ -57,13 +57,13 @@ namespace DIA.Web.Controllers
                 claimHistory = claimHistory.Where(c => c.ClaimIDNumber.ToUpper().Contains(searchString.ToUpper()));
             }
 
-            int pageSize = 1;
-            return View(await PaginatedList<ClaimHistory>.CreateAsync(<IEnumerable<ClaimHistory>> (claimHistory), page ?? 1, pageSize));
+            //int pageSize = 1;
+            //return View(await PaginatedList<ClaimHistory>.CreateAsync(<IEnumerable<ClaimHistory>> (claimHistory), page ?? 1, pageSize));
 
           
 
 
-            //return View(claimHistory);
+            return View(claimHistory);
         }
 
         public IActionResult Create(int id)

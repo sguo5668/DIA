@@ -86,7 +86,7 @@ namespace DIA.Web
             var mapper = config.CreateMapper();
             services.AddSingleton(mapper);
 
-			services.AddSingleton<ICachingService>(new CachingService());
+			//services.AddSingleton<ICachingService>(new CachingService());
 
 			services.AddScoped<IClaimRepository, ClaimRepository>();
 

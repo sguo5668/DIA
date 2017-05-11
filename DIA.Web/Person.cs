@@ -33,8 +33,8 @@ namespace DIA.Web
         public int PreferredLanguageCode { get; set; }
 
 		[EmailAddress(ErrorMessage = ResourceKeys.NotAValidEmail)]
-		[Display(Name = ResourceKeys.YourEmail)]
-		public string Email { get; set; }
+		[Display(Name = ResourceKeys.YourEmail)] 
+        public string Email { get; set; }
 		public int? PreferredCommunicationChannelCode { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
     }

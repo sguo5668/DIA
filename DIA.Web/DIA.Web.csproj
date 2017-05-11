@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <Compile Remove="CustomActionFilter.cs" />
+    <Compile Remove="ViewModels\DI2501AClaimantFormW6a.cs" />
+    <Compile Remove="ViewModels\DI2501AClaimantFormW6b.cs" />
+    <Compile Remove="ViewModels\ViewModelPerson.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.0.2" />

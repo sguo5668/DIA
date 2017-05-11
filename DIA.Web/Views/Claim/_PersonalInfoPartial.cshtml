@@ -1,0 +1,76 @@
+@model DIA.Web.ViewModels.DI2501AClaimantForm
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+          
+            <label asp-for=@Model.Person.FullName></label>
+            @Model.Person.FullName  
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+
+            <label asp-for=@Model.Person.ECN></label>
+            @Model.Person.ECN  
+          
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+
+            <label asp-for=@Model.PersonPhoneNumber.PhoneNumber></label>
+            <input asp-for=@Model.PersonPhoneNumber.PhoneNumber />
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+
+            <label asp-for=@Model.PersonAddress.AddressLine1></label>
+           @Model.PersonAddress.AddressLine1
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+
+            <label asp-for=@Model.PersonAddress.AddressLine2></label>
+           @Model.PersonAddress.AddressLine2
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+
+            <label asp-for=@Model.PersonAddress.City></label>
+            @Model.PersonAddress.City
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+
+            <label asp-for=@Model.PersonAddress.ZipCode></label>
+            @Model.PersonAddress.ZipCode
+        </div>
+    </div>
+</div>

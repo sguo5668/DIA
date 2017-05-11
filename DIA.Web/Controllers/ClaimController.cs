@@ -16,20 +16,31 @@ namespace DIA.Web.Controllers
 {
     public class ClaimController : Controller
     {
-
-        IClaimRepository repo;
+        IPersonRepository _repoPerson;
+        IPersonPhoneRepository _repoPersonPhone;
+        IPersonAddressRepository _repoPersonAddress;
+        IClaimRepository _repo;
         // Create a field to store the mapper object
         private readonly IMapper _mapper;
 		private readonly IStringLocalizer<ClaimController> _localizer;
 		private static DI2501AClaimantForm x = new DI2501AClaimantForm();
 		
 
-		public ClaimController( IClaimRepository claimRepository, IMapper mapper, IStringLocalizer<ClaimController> localizer)
+		public ClaimController( 
+            IClaimRepository claimRepository,
+            IPersonRepository personRepository,
+            IPersonPhoneRepository personPhoneRepository,
+            IPersonAddressRepository personAddressRepository,
+            IMapper mapper, 
+            IStringLocalizer<ClaimController> localizer)
         {
-            repo = claimRepository;
+            _repo = claimRepository;
             _mapper = mapper;
 			_localizer = localizer;
-		}
+            _repoPerson = personRepository;
+            _repoPersonPhone = personPhoneRepository;
+            _repoPersonAddress = personAddressRepository;
+        }
 
         [Route("[controller]")]
         [Route("[controller]/[action]/{id?}")]
@@ -48,7 +59,7 @@ namespace DIA.Web.Controllers
             ViewData["CurrentFilter"] = searchString;
 
             //   var claim = repo.GetHistoryClaim(id);
-            var claim = repo.GetAll();
+            var claim = _repo.GetAll();
 			var claimHistory = _mapper.Map<IEnumerable<ClaimHistory>>(claim);
  
 
@@ -76,6 +87,8 @@ namespace DIA.Web.Controllers
         [Route("[controller]/[action]")]
         public IActionResult Get(int id)
         {
+      
+
             return View("index");
         }
 
@@ -112,7 +125,12 @@ namespace DIA.Web.Controllers
 			if (BtnNext != null)
 			{
 				x.ClaimType = 1;
-				 return View("W6Step2",x);
+
+                x.Person = _repoPerson.Get(1);
+                x.PersonAddress = _repoPersonAddress.Get(1);
+                x.PersonPhoneNumber = _repoPersonPhone.Get(1);
+
+                return View("W6Step2",x);
 
 				//return RedirectToAction("Step2", "Claim");
 				//return RedirectToAction("Action", new Microsoft.AspNetCore.Routing.RouteValueDictionary(x));
@@ -134,6 +152,7 @@ namespace DIA.Web.Controllers
             if (BtnNext != null)
             {
 				x.FormOtherName = DI2501AClaimantForm.FormOtherName;
+               
 				return View("W6Step3",x);
             }
             return View();

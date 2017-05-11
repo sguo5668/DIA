@@ -15,6 +15,8 @@ namespace DIA.Web.ViewModels
 
 		public PersonAddress PersonAddress { get; set; }
 
+     
 
-	}
+
+    }
 }

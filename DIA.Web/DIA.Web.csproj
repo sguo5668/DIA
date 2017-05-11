@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CachingService.cs" />
     <Compile Remove="CustomActionFilter.cs" />
     <Compile Remove="ViewModels\DI2501AClaimantFormW6a.cs" />
     <Compile Remove="ViewModels\DI2501AClaimantFormW6b.cs" />

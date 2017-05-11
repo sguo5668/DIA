@@ -68,10 +68,11 @@ namespace DIA.Web
 					// UI strings that we have localized.
 					opts.SupportedUICultures = supportedCultures;
 				});
-	
 
+         //   services.AddScoped(typeof(DataAccess));
+            services.AddSingleton<IRepository<ReferenceTableValue>, ReferenceTableValueRepository>();
 
-		services.AddMemoryCache();
+            services.AddMemoryCache();
             services.AddSession(o =>
             {
                 o.IdleTimeout = TimeSpan.FromSeconds(10);
@@ -310,10 +311,42 @@ namespace DIA.Web
 
 			};
 
-			context.ReferenceTableValue.Add(reftablevalue2);
+            var reftablevalue3 = new ReferenceTableValue
+            {
+
+                TableName = "Job Category",
+                SystemValue = "light"
+
+            };
+
+            var reftablevalue4 = new ReferenceTableValue
+            {
+
+                TableName = "Job Category",
+                SystemValue = "medium"
+
+            };
 
 
-			context.SaveChanges();
+            var reftablevalue5 = new ReferenceTableValue
+            {
+
+                TableName = "Job Category",
+                SystemValue = "heavy"
+
+            };
+
+
+
+
+
+            context.ReferenceTableValue.Add(reftablevalue2);
+            context.ReferenceTableValue.Add(reftablevalue3);
+            context.ReferenceTableValue.Add(reftablevalue4);
+            context.ReferenceTableValue.Add(reftablevalue5);
+
+
+            context.SaveChanges();
 
 		
 

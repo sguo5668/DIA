@@ -47,6 +47,8 @@ namespace DIA.Web.Controllers
         [Route("[controller]/{id?}")]
         public async Task<IActionResult> Index(string currentFilter,     string searchString,     int? page)
         {
+
+
             if (searchString != null)
             {
                 page = 1;
